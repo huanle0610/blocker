@@ -1,0 +1,10 @@
+version: '3.1'
+services:
+    coredns:
+        image: coredns/coredns:amd64-1.11.0
+        ports:
+            - '7053:53'
+            - '7053:53/udp'
+        volumes:
+            - './config:/etc/coredns'
+        command:  ["-conf", "/etc/coredns/Corefile"]
