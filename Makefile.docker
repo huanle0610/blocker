@@ -82,6 +82,7 @@ ifeq ($(DOCKER),)
 else
 	docker version
 	for arch in $(LINUX_ARCH); do \
+		cp coredns build/docker/$${arch} ; \
 	    cp Dockerfile build/docker/$${arch} ; \
 	    DOCKER_ARGS=""; \
 	    if [ "$${arch}" = "riscv64" ]; then \
